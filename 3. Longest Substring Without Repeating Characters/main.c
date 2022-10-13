@@ -18,5 +18,5 @@ int lengthOfLongestSubstring(char *s) {
 }
 
 int main() {
-    return lengthOfLongestSubstring("abcdece");
+    return lengthOfLongestSubstring("abawdawd awacawcw%^&*%ccdeceiyuiop87653");
 }
