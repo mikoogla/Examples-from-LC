@@ -1,25 +1,22 @@
 #include <string.h>
-#include <stdlib.h>
-
-#define LIMIT 100000
-int isInMem(char c, char *memory) {
-    for(int j=0; j<)
-    return 0;
-}
 
 int lengthOfLongestSubstring(char *s) {
-    char *memory = malloc(LIMIT);
-    memset(memory, '\0', LIMIT-1);
-    int i = 0;
-    int counter = 0;
-    for (i = 0; i < strlen(s); i++) {
-        if (!isInMem(s[i], memory))
-            counter++;
+    int counter = 0, best = 0, p = 0;
+    for (int i = 0; i < strlen(s); i++) {
+        counter++;
+        for (int j = p; j < i; j++) {
+            if (s[j] == s[i]) {
+                while (p != j + 1) {
+                    counter--;
+                    p++;
+                }
+            }
+        }
+        if (counter > best) best = counter;
     }
-    if (counter > best) best = counter;
     return best;
 }
 
 int main() {
-    return lengthOfLongestSubstring(s);
+    return lengthOfLongestSubstring("abcdece");
 }
