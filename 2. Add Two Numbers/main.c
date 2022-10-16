@@ -102,7 +102,7 @@ int main() {
                     .next = NULL
             },
             {
-                    .val = 4,
+                    .val = 8,
                     .next = NULL
             },
             {
