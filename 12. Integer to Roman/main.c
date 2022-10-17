@@ -3,14 +3,14 @@
 #include <string.h>
 
 #define SET_SIZE 13
+
 struct DataSet {
     int value;
     char *symbol;
 };
 
 struct DataSet **createSet() {
-    struct DataSet **Set = malloc(sizeof(struct DataSet *) * 13);
-
+    struct DataSet **Set = malloc(sizeof(struct DataSet *) * SET_SIZE);
     for (int i = 0; i < SET_SIZE; i++) {
         Set[i] = malloc(sizeof(struct DataSet));
         Set[i]->symbol = calloc(3, 1);
@@ -45,7 +45,7 @@ struct DataSet **createSet() {
 }
 
 char *intToRoman(int num) {
-    char *res = calloc(100, sizeof(char));
+    char *res = calloc(16, sizeof(char));
     struct DataSet **set = createSet();
     while (num != 0) {
         for (int i = SET_SIZE - 1; i >= 0; i--) {
@@ -60,7 +60,8 @@ char *intToRoman(int num) {
 }
 
 int main() {
-    int number = 1;
-    printf("answer: %s\n",intToRoman(number));
+    for(int i=1; i<3999; i++){
+        printf("%s\n",intToRoman(i));
+    }
     return 0;
 }
